@@ -124,6 +124,17 @@ interface RepositoryOptions {
    * @default true
    */
   private?: boolean
+  /**
+   * Pull/merge request settings for staging-to-production workflows.
+   * When `base` is set, Studio commits to `branch` then creates or reuses a review request into `base`.
+   */
+  pullRequest?: {
+    /**
+     * Target branch for the pull request (GitHub) or merge request (GitLab).
+     * @example 'main'
+     */
+    base?: string
+  }
 }
 
 interface GitHubRepositoryOptions extends RepositoryOptions {
